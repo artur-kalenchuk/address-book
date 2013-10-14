@@ -9,6 +9,7 @@
     <file path="/TopPanelView.js" changelist="f79ff76a-a46c-4635-8c2f-f6f5d11b41d1" time="1381746931043" ignored="false" />
     <file path="/GlobalRouter.js" changelist="f79ff76a-a46c-4635-8c2f-f6f5d11b41d1" time="1381744901557" ignored="false" />
     <file path="/ContactList.js" changelist="f79ff76a-a46c-4635-8c2f-f6f5d11b41d1" time="1381746761857" ignored="false" />
+    <file path="/README.md" changelist="f79ff76a-a46c-4635-8c2f-f6f5d11b41d1" time="1381747939449" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +29,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="41" selection-start="659" selection-end="659" vertical-scroll-proportion="0.31059682">
+            <state line="44" column="41" selection-start="1945" selection-end="1945" vertical-scroll-proportion="-9.714286">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/task/app/Models/Category.js" />
         <option value="$PROJECT_DIR$/task/app/Collections/CategoryList.js" />
         <option value="$PROJECT_DIR$/task/app/views/NewCategory.js" />
         <option value="$PROJECT_DIR$/task/app/Collections/ContactList.js" />
@@ -117,6 +126,7 @@
         <option value="$PROJECT_DIR$/app/Collections/ContactList.js" />
         <option value="$PROJECT_DIR$/app/views/TopPanelView.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -421,7 +431,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="659" selection-end="659" vertical-scroll-proportion="0.31059682">
+        <state line="44" column="41" selection-start="1945" selection-end="1945" vertical-scroll-proportion="-9.714286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
