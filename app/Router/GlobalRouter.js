@@ -13,11 +13,11 @@ define([
 	'appFiles/Models/Category',
     'appFiles/Collections/ContactList',
 	'appFiles/Collections/CategoryList',
-	'appFiles/views/ContactList',
-    'appFiles/views/ContactInfo',
-    'appFiles/views/NewContact',
-	'appFiles/views/TopPanelView',
-	'appFiles/views/NewCategory'
+	'appFiles/Views/ContactList',
+    'appFiles/Views/ContactInfo',
+    'appFiles/Views/NewContact',
+	'appFiles/Views/TopPanelView',
+	'appFiles/Views/NewCategory'
 ], function ($, _,  Backbone,
              ContactModel,
              CategoryModel,

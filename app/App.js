@@ -9,7 +9,7 @@ define(
     ['jquery',
     'underscore',
     'backbone',
-    'appFiles/router/GlobalRouter'
+    'appFiles/Router/GlobalRouter'
     ],
     function($, _, Backbone, GlobalRouter ) {
     'use strict';
