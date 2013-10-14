@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>address book</title>
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="vendor/bootstrap/bootstrap-select/bootstrap-select.min.css" />
+	<script data-main="main.js" src="vendor/require/require.js"></script>
+</head>
+<body class="">
+
+<div class="modal fade" id="new_contact" tabindex="-1" role="dialog" aria-labelledby="new_contactLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Contact</h4>
+			</div>
+			<div class="modal-body">
+				<script type="text/template" id="create_contact_template">
+					<div class="input-group">
+						<span class="input-group-addon">Name</span>
+						<input type="text" class="form-control" value="<%= data.model.name %>" id="name_field" placeholder="Name">
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon">E-mail</span>
+						<input type="text" class="form-control" value="<%= data.model.email %>" id="email_field" placeholder="E-mail">
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon">Phone</span>
+						<input type="text" class="form-control" value="<%= data.model.phone %>" id="phone_field" placeholder="Phone">
+					</div>
+					<br />
+					<div class="input-group">
+						<span class="input-group-addon">Category</span>
+						<select class="selectpicker" data-live-search="true">
+							<option value="" >All categories</options>
+							<% _.each(data.categories, function(model, index){ %>
+							<% if(model.id == data.model.category_id) { %>
+								<option selected value="<%= model.id %>" ><%= model.name %></options>
+							<% } else{ %>
+								<option value="<%= model.id %>" ><%= model.name %></options>
+							<% } %>
+							<% }); %>
+						</select>
+					</div>
+				</script>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" id="save" data-dismiss="modal">
+					<span class="glyphicon glyphicon-save"></span> Save
+				</button>
+				<button type="button" class="btn btn-danger" id="cancel" data-dismiss="modal">
+					<span class="glyphicon glyphicon-remove"></span> Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="new_category" tabindex="-1" role="dialog" aria-labelledby="new_categoryLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">New category</h4>
+			</div>
+			<div class="modal-body">
+				<script type="text/template" id="new_category_template">
+					<div class="input-group">
+						<span class="input-group-addon">Name</span>
+						<input type="text" class="form-control" id="category_name_field" placeholder="Name">
+					</div>
+				</script>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" id="save_category" data-dismiss="modal">
+					<span class="glyphicon glyphicon-save"></span> Save
+				</button>
+				<button type="button" class="btn btn-danger" id="cancel_category" data-dismiss="modal">
+					<span class="glyphicon glyphicon-remove"></span> Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-lg-3">
+				<h1>Address book</h1>
+			</div>
+			<div class="col-lg-5" style="margin: 25px 0 0 0" id="top_panel">
+				<script type="text/template" id="contact_search_template">
+					<div class="col-lg-6">
+						<select class="selectpicker" id="categories" data-live-search="true">
+							<option value="" >All categories</options>
+							<% _.each(data, function(model, index){ %>
+							<option value="<%= model.id %>" ><%= model.name %></options>
+							<% }); %>
+						</select>
+						<button type="button" class="btn btn-success" id="add_category" data-toggle="modal" href="#new_category" >
+							<span class="glyphicon glyphicon-plus-sign"></span>
+						</button>
+					</div>
+					<div class="col-lg-5">
+						<input type="text" class="form-control" id="search_field" placeholder="Search">
+					</div>
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-3" id="contact_list">
+				<script type="text/template" id="contact_list_template">
+					<ul class="list-group">
+						<% _.each(data, function(model, index){ %>
+							<li class="list-group-item contact_item" id="<%= model.id %>"><span class="glyphicon glyphicon-user"></span> <%= model.name %><button type="button" class="remove_contact close" aria-hidden="true">&times;</button></li>
+						<% }); %>
+					</ul>
+					<button type="button" class="btn btn-success" id="add_contact" data-toggle="modal" href="#new_contact" >
+						<span class="glyphicon glyphicon-plus"></span> Add
+					</button>
+				</script>
+			</div>
+			<div class="col-lg-9 well" id="contact_info">
+				<script type="text/template" id="contact_info_template">
+					<h1 class="text-primary"><span class="glyphicon glyphicon-user"></span> <%= data.name %></h1>
+					<div class="form-group">
+						<label><span class="glyphicon glyphicon-envelope" ></span> Email address: </label><span class="text-info"> <%= data.email %></span>
+					</div>
+					<div class="form-group">
+						<label><span class="glyphicon glyphicon-phone-alt" ></span> Phone: </label><span class="text-info"> <%= data.phone %></span>
+					</div>
+					<div class="form-group">
+						<label><span class="glyphicon glyphicon-th-list" ></span> Category: </label><span class="text-info"> <%= data.category_name %></span>
+					</div>
+					<button type="button" class="btn btn-success" id="edit_contact" data-toggle="modal" href="#new_contact" >
+						<span class="glyphicon glyphicon-edit"></span> Edit
+					</button>
+				</script>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
