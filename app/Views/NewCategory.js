@@ -23,9 +23,7 @@ define([
 	var NewCategory = Backbone.View.extend({
 
 		el: '#new_category',
-//
 		template: _.template($('#new_category_template').html()),
-//
 		events: {
 			'click #save_category': 'onSave',
 			'click #cancel_category' : 'onCansel'
@@ -37,7 +35,6 @@ define([
 			this.listenTo(model, 'sync', this.close);
 			this.listenTo(model, 'destroy', this.close);
 		},
-//
 		render: function () {
 			var data = this.model.toJSON();
 			this.$el.find('.modal-body').html(this.template({data:data}));
