@@ -43,7 +43,7 @@ require.config({
         backboneLocalstorage: 'vendor/backbone/backbone.localStorage/backbone.localStorage-min',
         text: 'vendor/require/requirejs-text/text',
         bootstrap: 'vendor/bootstrap/js/bootstrap.min',
-	    bootstrapSelect: 'vendor/bootstrap/bootstrap-select/bootstrap-select.min',
+	bootstrapSelect: 'vendor/bootstrap/bootstrap-select/bootstrap-select.min',
         //app
         appFiles: 'app/',
         app: 'app/App'
@@ -55,9 +55,4 @@ require([
     'app'
 ], function (App) {
       App.init();
-//    new Workspace();
-//    Backbone.history.start();
-//
-//    // Initialize the application view
-//    new AppView();
 });
