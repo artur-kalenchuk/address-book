@@ -23,40 +23,35 @@ define([
     var NewContact = Backbone.View.extend({
 
         el: '#new_contact',
-//
         template: _.template($('#create_contact_template').html()),
-//
         events: {
             'click #save': 'onSave',
             'click #cancel' : 'onCansel'
         },
 
         initialize: function () {
-			this.templateBody = this.$el.find('.modal-body');
+		this.templateBody = this.$el.find('.modal-body');
 	        this.categories = this.options.categories;
         },
 
-	    setModel: function(model){
-			var model = this.model = model;
-		    this.listenTo(model, 'sync', this.close);
-		    this.listenTo(model, 'destroy', this.close);
-	    },
-//
+	setModel: function(model){
+		var model = this.model = model;
+		this.listenTo(model, 'sync', this.close);
+		this.listenTo(model, 'destroy', this.close);
+	},
         render: function () {
             var data = {
-		            model:this.model.toJSON(),
+		        model:this.model.toJSON(),
 	                categories: this.categories.toJSON()
 	            };
 
             this.templateBody.html(this.template({data:data}));
-	        this.$el.find('.selectpicker').selectpicker();
+	    this.$el.find('.selectpicker').selectpicker();
         },
 
         close: function(){
             var router = App.getRouter();
             router.navigate("list",  {trigger: true});
-//            this.undelegateEvents();
-//            this.stopListening();
         },
 
         onSave: function(){
