@@ -1,10 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: artur
- * Date: 9/30/13
- * Time: 7:15 PM
- * To change this template use File | Settings | File Templates.
- */
 'use strict';
 require.config({
     // The shim config allows us to configure dependencies for
